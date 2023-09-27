@@ -2,20 +2,22 @@
 import Logo from "./logo";
 import { useNavigate, NavLink, Link } from "react-router-dom";
 import Categories from "./categories";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { IconContext } from "react-icons";
+
+// TODO: add a logout button, remove local storage
 
 export default function Navbar({
   categories,
   setCategories,
   setProductsByCat,
-  isLoggedIn,
-  user,
+
   cart,
 }) {
   const navigate = useNavigate();
   const cartRef = useRef();
+  const [isLoggedIn, setIsLoggedIn] = useState({});
 
   useEffect(() => {
     const getCategories = async () => {
@@ -23,7 +25,9 @@ export default function Navbar({
         .then((res) => res.json())
         .then((json) => {
           setCategories(json);
-        });
+          const loggedIn = JSON.parse(localStorage.getItem("login"));
+          setIsLoggedIn(loggedIn);
+        }, []);
     };
     getCategories();
   }, [setCategories]);
@@ -46,7 +50,7 @@ export default function Navbar({
           }}
         />
       </Link>
-
+      {console.log(isLoggedIn)}
       <div className="widthWithCalcMinusLogo absolute right-0  flex h-[64px] ">
         {categories.map((el, i) => (
           <Categories
@@ -76,7 +80,7 @@ export default function Navbar({
             <div className="relative flex flex-row ">
               <input
                 type="search"
-                className="max-md:w- relative appearance-none self-center rounded-md bg-khaki/20 p-1 focus:outline-purple/60 maxLg:w-60 maxLg:px-20"
+                className=" relative appearance-none self-center rounded-md bg-khaki/20 p-1 focus:outline-purple/60 maxLg:w-60 maxLg:px-20 maxMd:w-44"
               />
               <div className="right pointer-events-none absolute right-0 z-20 flex h-8 self-center rounded-r-md pr-2 ">
                 <svg
@@ -95,19 +99,30 @@ export default function Navbar({
               </div>
             </div>
 
-            {isLoggedIn ? (
-              <div className=" w-20 self-center  hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10  hover:px-px">
-                <span className="flex flex-row">
-                  <IconContext.Provider
-                    value={{ className: "self-center ml-2 fill-purple" }}
+            {isLoggedIn?.success ? (
+              <>
+                <div className=" group w-20  self-center  hover:border-px hover:border-dashed  hover:border-black hover:bg-khaki/10 hover:px-px">
+                  <span className="flex flex-row">
+                    <IconContext.Provider
+                      value={{ className: "self-center ml-2 fill-purple" }}
+                    >
+                      <AiOutlineUser />
+                    </IconContext.Provider>
+                    <span className="text-purple">Hi</span>,{" "}
+                    {isLoggedIn.firstName.toUpperCase()}
+                    {isLoggedIn?.lastName[0].toUpperCase().charAt(0)}
+                  </span>
+                  <button
+                    onClick={() => {
+                      localStorage.removeItem("login");
+                      location.reload();
+                    }}
+                    className=" invisible  group-hover:visible "
                   >
-                    <AiOutlineUser />
-                  </IconContext.Provider>
-                  <span className="text-purple">Hi</span>,{" "}
-                  {user.result.firstName.toUpperCase().charAt(0)}{" "}
-                  {user.result.lastName[0].toUpperCase()}
-                </span>
-              </div>
+                    logout
+                  </button>
+                </div>
+              </>
             ) : (
               <div
                 className=" self-center hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10"

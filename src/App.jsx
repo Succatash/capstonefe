@@ -12,7 +12,6 @@ import SingleProduct from "./components/singleProduct";
 import FullScreenImage from "./components/fullScreenImage";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [productsByCat, setProductsByCat] = useState([]);
   const [categories, setCategories] = useState([]);
   const [singleProduct, setSingleProduct] = useState({});
@@ -21,7 +20,6 @@ function App() {
     { id: 1, productId: 2 },
     { id: 2, productId: 3, quantity: 2 },
   ]);
-  const [user, setUser] = useState({});
 
   return (
     <Routes>
@@ -31,8 +29,6 @@ function App() {
             setCategories={setCategories}
             categories={categories}
             setProductsByCat={setProductsByCat}
-            isLoggedIn={isLoggedIn}
-            user={user}
             cart={cart}
           />
         }
@@ -72,14 +68,9 @@ function App() {
         </Route>
 
         <Route path="/cart" element={<Cart />} />
-
-        <Route
-          path="/login"
-          element={<Login setIsLoggedIn={setIsLoggedIn} setUser={setUser} />}
-        />
-
-        <Route path="/register" element={<Register />} />
       </Route>
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 }

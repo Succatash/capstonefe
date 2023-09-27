@@ -6,14 +6,15 @@ import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ setIsLoggedIn, setUser }) => {
+const Login = ({ setUser }) => {
   const navigate = useNavigate();
-
+  const [pwErr, setPwErr] = useState();
   const [focusInput, setFocusInput] = useState({
     email: false,
     password: false,
   });
   const [seeText, setSeeText] = useState({ text: "password", bool: false });
+
   const {
     register,
     handleSubmit,
@@ -27,6 +28,7 @@ const Login = ({ setIsLoggedIn, setUser }) => {
       staySignedIn: false,
     },
     mode: "onBlur",
+    reValidateMode: "onChange",
   });
 
   const onSubmit = (data) => {
@@ -51,9 +53,14 @@ const Login = ({ setIsLoggedIn, setUser }) => {
       const result = await response.json();
 
       if (result.success) {
-        setUser({ result });
-        setIsLoggedIn(true);
-        navigate("/");
+        if (getValues("staySignedIn")) {
+          localStorage.setItem("login", JSON.stringify(result));
+          navigate("/");
+        } else {
+          navigate("/");
+        }
+      } else {
+        setPwErr(true);
       }
     } catch (err) {
       console.error(err);
@@ -179,7 +186,13 @@ const Login = ({ setIsLoggedIn, setUser }) => {
                   message: "can only have a maximum of 20 characters",
                 },
 
+                validate: {
+                  wrongPW: () => {
+                    return !pwErr || "wrong password";
+                  },
+                },
                 onChange: () => {
+                  setPwErr(false);
                   clearErrors("password");
                 },
 
@@ -207,7 +220,7 @@ const Login = ({ setIsLoggedIn, setUser }) => {
           <input
             type="checkbox"
             autoComplete="off"
-            className="  mb-[27px] h-5 w-5 appearance-none  justify-center self-center rounded-sm  border-px border-dimGray/80 checked:bg-checkmarkGreen"
+            className="  mb-[27px] h-4 w-5 appearance-none  justify-center self-center rounded-sm  border-px border-dimGray/80 checked:bg-black"
             {...register("staySignedIn")}
           />
           <label

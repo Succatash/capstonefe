@@ -6,9 +6,9 @@ export default function Header({
   categories,
   setCategories,
   setProductsByCat,
-  user,
+ 
   cart,
-  isLoggedIn,
+
 }) {
   return (
     <>
@@ -18,9 +18,9 @@ export default function Header({
           categories={categories}
           setCategories={setCategories}
           setProductsByCat={setProductsByCat}
-          user={user}
+      
           cart={cart}
-          isLoggedIn={isLoggedIn}
+      
         />
       </header>
     </>

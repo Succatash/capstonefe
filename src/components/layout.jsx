@@ -6,10 +6,8 @@ const Layout = ({
   setCategories,
   categories,
   setProductsByCat,
-  user,
+  
   cart,
-  isLoggedIn,
-
 }) => {
   return (
     <main>
@@ -17,9 +15,7 @@ const Layout = ({
         setProductsByCat={setProductsByCat}
         setCategories={setCategories}
         categories={categories}
-        user={user}
         cart={cart}
-        isLoggedIn={isLoggedIn}
       />
       <Outlet />
     </main>
