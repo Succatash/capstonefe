@@ -27,7 +27,7 @@ const MapProducts = ({ productsByCat, setSingleProduct }) => {
                   "w-6 h-6  absolute right-3 top-0  mt-4 bg-transparent mr-[2px] z-[11] ",
                 title: "hidden",
                 img: " relative w-5/12 w-11/12 self-center p-1 z-20 object-contain ",
-                price: "",
+                price: "text-checkmarkGreen",
                 desc: "line-clamp-2 ",
                 button:
                   "bg-aeroBlue/70  rounded-full text-white p-1 h-3/12 w-9/12 self-center mb-3 text-center",
@@ -36,6 +36,7 @@ const MapProducts = ({ productsByCat, setSingleProduct }) => {
                 rateBox: "f-full relative  pb-5",
                 count: "text-sm absolute top-0 pt-1 left-[83px] ",
                 rate: `before:content-["★★★★★"]  bg-clip-text  text-transparent bg-gold`,
+                sale: "pl-3",
               }}
               click={() => {
                 navigate(`/${category}/${product.id}`);

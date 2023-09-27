@@ -26,21 +26,21 @@ export default function SingleProduct({ singleProduct }) {
         /<span className="cursor-default hover:underline">{productId}</span>
       </div>
 
-      <section className="h-10/12 maxMd:flex-col  mt-3  flex w-screen flex-row   ">
-        <div className=" maxMd:self-center maxMd:min-w-[365px] w-6/12 px-2">
+      <section className="h-10/12 mt-3  flex  w-screen flex-row maxMd:flex-col   ">
+        <div className=" w-6/12 px-2 maxMd:min-w-[365px] maxMd:self-center">
           <img
             src={singleProduct.image}
             alt=""
-            className="h-9/12 maxMd:self-center w-full min-w-[285px] object-contain"
+            className="h-9/12 w-full min-w-[285px] object-contain maxMd:self-center"
           />
         </div>
 
         {/* This is the right side area */}
-        <div className=" min-w- maxMd:self-center  mt-3 flex w-5/12 min-w-[365px] flex-col">
+        <div className=" min-w- mt-3  flex w-5/12 min-w-[365px] flex-col maxMd:self-center">
           <div className="pt-4 font-extrabold">{singleProduct?.title}</div>
 
           {/* // container for rating and reviews and count */}
-          <div className="relative flex w-9/12 flex-row pt-2 align-bottom">
+          <div className="relative flex w-[274px] flex-row pt-2 align-bottom">
             <div
               className=' bg-gold bg-clip-text text-[25px] text-transparent before:content-["★★★★★"]'
               style={{
@@ -69,7 +69,11 @@ export default function SingleProduct({ singleProduct }) {
 
           <div className="flex flex-row pt-4">
             <div className="text-2xl text-checkmarkGreen">
-              ${singleProduct?.price - singleProduct?.price / 10}
+              $
+              {Math.round(
+                ((singleProduct?.price - singleProduct?.price / 10) * 100) /
+                  100,
+              )}
             </div>
 
             <div className="self-end pl-4 text-lg text-black line-through">
@@ -83,7 +87,7 @@ export default function SingleProduct({ singleProduct }) {
             <label htmlFor="quantityList">Qty: </label>
             <select
               id="quantityList"
-              className="h-8 w-9 border-px border-black"
+              className="h-8 w-12 border-px border-black"
               name="quantityList"
             >
               <option value="1" default>

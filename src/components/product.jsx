@@ -39,7 +39,16 @@ const Product = ({ product, styling, click }) => {
         <h2 className={styling.title}>{product.title}</h2>
         <div className={styling.subContainer}>
           <div className={styling.priceBox}>
-            <div className={styling.price}> ${product.price}</div>
+            <div className="flex w-4/12 flex-row">
+              <div className={styling.price}>
+                {" "}
+                $
+                {Math.round(
+                  ((product?.price - product?.price / 10) * 100) / 100,
+                )}
+              </div>
+              <p className={`line-through ${styling.sale}`}>${product.price}</p>
+            </div>
             <p className={styling.desc}>{product.description}...</p>
           </div>
 

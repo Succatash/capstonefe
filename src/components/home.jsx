@@ -43,7 +43,7 @@ const Home = ({
         return (
           <section
             key={el}
-            className=" maxMd:shadow-none  relative  mb-20 justify-around shadow-2xl"
+            className=" relative  mb-20  justify-around shadow-2xl maxMd:shadow-none"
           >
             <h1
               className="text-bold cursor-pointer pb-2 text-center text-2xl "
@@ -63,7 +63,7 @@ const Home = ({
               render={products.map((prod) => {
                 return prod.category === el ? (
                   <div
-                    className=" maxMd:mb-5 maxMd:justify-around relative z-0 flex h-full w-full  min-w-[200px] flex-col shadow-lg"
+                    className=" relative z-0 flex h-full w-full min-w-[200px] flex-col  shadow-lg maxMd:mb-5 maxMd:justify-around"
                     key={prod.id}
                   >
                     <Product
@@ -75,7 +75,7 @@ const Home = ({
                           "w-6 h-6  absolute right-3 top-0  mt-4 bg-transparent mr-[2px] z-[11]",
                         title: "hidden",
                         img: " flex w-[125px] h-[125px]  self-center object-contain mt-8",
-                        price: "h-3/12",
+                        price: "h-3/12 text-sm text-checkmarkGreen",
                         desc: "line-clamp-2 text-xs h-3/12 ",
                         subContainer: "px-5 cursor-default",
                         priceBox: "hover:underline",
@@ -83,6 +83,7 @@ const Home = ({
                         rateBox: "f-full relative  pb-5",
                         count: "text-sm absolute top-0 pt-1 left-[83px] ",
                         rate: `before:content-["★★★★★"] bg-clip-text  text-transparent bg-gold`,
+                        sale: `text-xs self-end pl-2`,
                       }}
                       click={() => {
                         navigate(`/${el}/${prod.id}`);
