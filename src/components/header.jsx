@@ -4,11 +4,10 @@ import CallToAction from "./CallToAction";
 
 export default function Header({
   categories,
-  setCategories,
-  setProductsByCat,
- 
-  cart,
 
+  setProductsByCat,
+
+  cart,
 }) {
   return (
     <>
@@ -16,11 +15,8 @@ export default function Header({
         <CallToAction />
         <Navbar
           categories={categories}
-          setCategories={setCategories}
           setProductsByCat={setProductsByCat}
-      
           cart={cart}
-      
         />
       </header>
     </>

@@ -6,7 +6,7 @@ import { BsFillEyeFill, BsFillEyeSlashFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ setUser }) => {
+const Login = () => {
   const navigate = useNavigate();
   const [pwErr, setPwErr] = useState();
   const [focusInput, setFocusInput] = useState({
@@ -55,6 +55,7 @@ const Login = ({ setUser }) => {
       if (result.success) {
         if (getValues("staySignedIn")) {
           localStorage.setItem("login", JSON.stringify(result));
+
           navigate("/");
         } else {
           navigate("/");
@@ -220,7 +221,7 @@ const Login = ({ setUser }) => {
           <input
             type="checkbox"
             autoComplete="off"
-            className="  mb-[27px] h-4 w-5 appearance-none  justify-center self-center rounded-sm  border-px border-dimGray/80 checked:bg-black"
+            className="  mb-[27px] h-4 w-5 appearance-none  justify-center self-center rounded-sm  border-px border-dimGray/80 checked:bg-black/60"
             {...register("staySignedIn")}
           />
           <label

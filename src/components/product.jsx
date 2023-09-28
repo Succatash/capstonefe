@@ -1,14 +1,31 @@
 /* eslint-disable react/prop-types */
-import { NavLink } from "react-router-dom";
+
 import { useState } from "react";
 
-const Product = ({ product, styling, click }) => {
+const Product = ({ product, styling, click, setCart, cart }) => {
   const [heartSvg, setHeartSvg] = useState(false);
+
+  const addToCart = (item) => {
+    // Check if the item already exists in the cart
+    const existingItemIndex = cart.findIndex((cart) => cart.id === item.id);
+
+    if (existingItemIndex !== -1) {
+      // If the item already exists, update its quantity
+      const updatedCart = [...cart];
+      (updatedCart[existingItemIndex].qty += 1),
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+    } else {
+      // If the item doesn't exist, add it to the cart
+      const updatedCart = [...cart, { ...item, qty: 1 }];
+      setCart(updatedCart);
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
+    }
+  };
 
   return (
     <>
       <button
-        className={`${styling.svgContainer} absolute z-[60]`}
+        className={`${styling.svgContainer} bg-aero-blue  absolute`}
         name={product.id}
         onClick={() => {
           if (heartSvg) {
@@ -22,8 +39,8 @@ const Product = ({ product, styling, click }) => {
           strokeWidth={1.5}
           className={`${
             heartSvg
-              ? "heartBounce h-6 w-6 fill-aeroBlue stroke-aeroBlue"
-              : "h-6 w-6  fill-none stroke-black "
+              ? " heartBounce relative z-[1000] h-6 w-6 fill-aeroBlue stroke-aeroBlue"
+              : "relative z-[1000] h-6  w-6  fill-none stroke-black"
           }`}
         >
           <path
@@ -65,9 +82,13 @@ const Product = ({ product, styling, click }) => {
           </div>
         </div>
       </div>
-      <NavLink className={styling.button} to={"/cart"}>
+      <button
+        type="submit"
+        className={styling.button}
+        onClick={() => addToCart({ id: product.id, qty: 1, prod: product })}
+      >
         Add to cart
-      </NavLink>
+      </button>
     </>
   );
 };
