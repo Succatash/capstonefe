@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Product = ({ product, styling, click, setCart, cart }) => {
+const Product = ({ product, styling, click, setCart, cart, category }) => {
   const [heartSvg, setHeartSvg] = useState({});
   const navigate = useNavigate();
 
@@ -55,7 +55,13 @@ const Product = ({ product, styling, click, setCart, cart }) => {
         </svg>
       </button>
 
-      <div className={styling.container} onClick={click} style={{ zIndex: 10 }}>
+      <div
+        className={styling.container}
+        style={{ zIndex: 0 }}
+        onClick={() => {
+          navigate(`/${category}/${product.id}`);
+        }}
+      >
         <img src={product.image} alt="product image" className={styling.img} />
         <h2 className={styling.title}>{product.title}</h2>
         <div className={styling.subContainer}>
@@ -88,11 +94,12 @@ const Product = ({ product, styling, click, setCart, cart }) => {
       </div>
       <button
         type="submit"
-        className={styling.button}
+        className={`${styling.button}`}
         onClick={() => {
           addToCart({ id: product.id, qty: 1, prod: product });
           navigate("/");
         }}
+        style={{ zIndex: 30 }}
       >
         Add to cart
       </button>

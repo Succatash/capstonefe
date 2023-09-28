@@ -24,8 +24,12 @@ const Categories = ({ styling, categories }) => {
           <div
             className=" relative z-0 flex h-full w-full min-w-[200px] flex-col  shadow-lg maxMd:mb-5 maxMd:justify-around"
             key={prod.id}
+            onClick={() => {
+              navigate(`/${categories}/${prod.id}`);
+            }}
           >
             <Product
+              category={categories}
               product={prod}
               styling={{
                 container:
@@ -33,7 +37,7 @@ const Categories = ({ styling, categories }) => {
                 svgContainer:
                   "w-6 h-6  absolute right-3 top-0  mt-4 bg-transparent mr-[2px] z-[11]",
                 title: "hidden",
-                img: " flex w-[125px] h-[125px]  self-center object-contain mt-8",
+                img: " flex w-[125px] h-[100px]  self-center object-contain mt-8",
                 price: "h-3/12 text-sm text-checkmarkGreen",
                 desc: "line-clamp-2 text-xs h-3/12 ",
                 subContainer: "px-5 cursor-default",

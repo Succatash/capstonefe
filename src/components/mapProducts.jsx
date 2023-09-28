@@ -32,12 +32,13 @@ const MapProducts = ({ cart, setCart }) => {
           >
             {/* TODO: finish styling products */}
             <Product
+              category={category}
               product={product}
               setCart={setCart}
               cart={cart}
               styling={{
                 container:
-                  " relative flex flex-col justify-center items-start w-full h-full   z-10 ",
+                  " relative flex flex-col justify-center items-start w-full h-full   z-[1]  min-h-[300px]",
                 svgContainer:
                   "w-6 h-6  absolute right-3 top-0  mt-4 bg-transparent mr-[2px] bg-aeroBlue",
                 title: "hidden",
@@ -52,9 +53,6 @@ const MapProducts = ({ cart, setCart }) => {
                 count: "text-sm absolute top-0 pt-1 left-[83px] ",
                 rate: `before:content-["★★★★★"]  bg-clip-text  text-transparent bg-gold`,
                 sale: "pl-3",
-              }}
-              click={() => {
-                navigate(`/${category}/${product.id}`);
               }}
             />
           </div>

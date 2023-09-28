@@ -65,10 +65,11 @@ function App() {
         <Route
           path="/:category/:productId"
           element={<SingleProduct setCart={setCart} cart={cart} />}
-        ></Route>
+        />
 
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
       </Route>
+
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
     </Routes>
