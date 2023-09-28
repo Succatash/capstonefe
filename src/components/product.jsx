@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Product = ({ product, styling, click, setCart, cart }) => {
   const [heartSvg, setHeartSvg] = useState({});
+  const navigate = useNavigate();
 
   const addToCart = (item) => {
     // Check if the item already exists in the cart
@@ -87,7 +89,10 @@ const Product = ({ product, styling, click, setCart, cart }) => {
       <button
         type="submit"
         className={styling.button}
-        onClick={() => addToCart({ id: product.id, qty: 1, prod: product })}
+        onClick={() => {
+          addToCart({ id: product.id, qty: 1, prod: product });
+          navigate("/");
+        }}
       >
         Add to cart
       </button>

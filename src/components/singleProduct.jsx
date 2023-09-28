@@ -142,6 +142,7 @@ export default function SingleProduct({ setCart, cart }) {
                 qty: Number(selectRef.current.value),
                 prod: singleProduct,
               });
+              navigate("/");
             }}
           >
             Add to cart
