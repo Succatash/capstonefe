@@ -13,18 +13,13 @@ const Cart = ({ cart, setCart }) => {
     return result;
   };
 
-  // const removeFromCart = (itemId) => {
-
-  //   setCartItems(updatedCart);
-  //   localStorage.setItem(JSON.stringify("cart", cartItems));
-  // };
   return (
     <section className="m-auto mt-4 h-full w-9/12 ">
       <div
-        className="text-bold  maxSm:text-center 
-      maxSm:text-fs30px
+        className="text-bold  w-full 
+      text-right
       
-      w-full text-right text-3xl maxMd:text-center"
+      text-3xl maxMd:text-center maxSm:text-center maxSm:text-fs30px"
       >
         TOTAL: ${total()}
       </div>
