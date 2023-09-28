@@ -13,7 +13,7 @@ export default function Navbar({ categories, cart }) {
 
   useEffect(() => {
     const loggedIn = JSON.parse(localStorage.getItem("login"));
-   
+
     setIsLoggedIn(loggedIn);
   }, []);
 
@@ -44,9 +44,9 @@ export default function Navbar({ categories, cart }) {
           </div>
         ))}
 
-        <div className=" flex w-9/12 flex-row justify-end maxLg:w-full">
-          <div className="flex w-full flex-row justify-around ">
-            <div className="relative flex flex-row ">
+        <div className="  flex w-9/12 flex-row justify-end maxLg:w-full">
+          <div className=" maxSm:justify-end maxSm:pr-4 flex w-full flex-row justify-around">
+            <div className="maxSm:hidden relative flex flex-row">
               <input
                 type="search"
                 className=" relative appearance-none self-center rounded-md bg-khaki/20 p-1 focus:outline-purple/60 maxLg:w-60 maxLg:px-20 maxMd:w-44"
@@ -70,7 +70,7 @@ export default function Navbar({ categories, cart }) {
 
             {isLoggedIn?.success ? (
               <>
-                <div className=" group w-20  self-center  hover:border-px hover:border-dashed  hover:border-black hover:bg-khaki/10 hover:px-px">
+                <div className=" maxSm:pr-6 group  w-20  self-center hover:border-px  hover:border-dashed hover:border-black hover:bg-khaki/10 hover:px-px">
                   <span className="flex flex-row">
                     <IconContext.Provider
                       value={{ className: "self-center ml-2 fill-purple" }}
@@ -94,7 +94,7 @@ export default function Navbar({ categories, cart }) {
               </>
             ) : (
               <div
-                className=" self-center hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10"
+                className=" maxSm:pr-6 self-center hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10"
                 onClick={() => {
                   navigate("/login");
                 }}
@@ -110,7 +110,7 @@ export default function Navbar({ categories, cart }) {
               </div>
             )}
             <div
-              className=" mr-3 h-10 w-8 self-center border border-transparent   hover:self-center hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10"
+              className=" mr-3 h-10 w-8 self-center border border-transparent   hover:self-center hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10 "
               onClick={() => {
                 navigate("cart");
               }}

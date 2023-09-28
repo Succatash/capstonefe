@@ -72,9 +72,9 @@ const PersonalForm = () => {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex w-[413px] flex-col items-center pt-4"
+        className="maxSm:w-10/12 flex w-[413px] flex-col items-center pt-4"
       >
-        <div className="relative flex w-w407px flex-row items-center justify-between">
+        <div className="maxSm:w-full  relative flex w-w407px flex-row items-center justify-between">
           <div className="flex flex-col">
             {/* NOTE:first name input */}
 

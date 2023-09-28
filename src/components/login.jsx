@@ -72,14 +72,14 @@ const Login = () => {
 
   return (
     <div className=" mt-10 flex flex-col items-center justify-center">
-      <p className="text-left  text-fs30px font-semibold">
+      <h1 className="maxSm:w-10/12  maxSm:text-[25px] text-left text-fs30px font-semibold">
         Sign into your Shuk Account
-      </p>
+      </h1>
 
       <form
         action=""
         onSubmit={handleSubmit(onSubmit)}
-        className="flex w-[413px] flex-col items-center pt-4"
+        className="maxSm:w-10/12 flex w-[413px] flex-col items-center pt-4"
       >
         <div className="relative flex w-full flex-col items-end">
           <label

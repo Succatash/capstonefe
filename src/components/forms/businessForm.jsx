@@ -41,11 +41,11 @@ const BusinessForm = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit, onError)}
-      className="flex w-[413px] flex-col items-center pt-4"
+      className="maxSm:w-10/12 flex w-[413px] flex-col items-center pt-4"
     >
-      <div className="relative flex w-w407px flex-row items-center justify-between">
+      <div className="maxSm:w-full relative flex w-w407px flex-row items-center justify-between">
         {/* NOTE:first name input */}
-        <div className="relative flex w-full flex-col items-end">
+        <div className=" relative flex w-full flex-col items-end self-center">
           <label
             className={`${
               focusInput.businessName

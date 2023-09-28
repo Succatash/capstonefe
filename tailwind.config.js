@@ -21,7 +21,8 @@ export default {
 					raw:'(display-mode:fullscreen)'
 				},
 				maxLg:{"max":"1032px"},
-				maxMd:{'max':"600px"}
+				maxMd:{'max':"600px"},
+				maxSm:{'max':"420px"}
 			},
 			backgroundImage:{
 				openPhoto: 'url(/assets/registerPagePhoto.jpg)',

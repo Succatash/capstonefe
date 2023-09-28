@@ -9,23 +9,23 @@ const Register = () => {
 
   return (
     <>
-      <div className="  relative flex h-full flex-col items-center justify-center">
-        <div className="flex w-[413px] flex-col items-center justify-center">
+      <div className="   maxSM:py-3 relative flex h-full flex-col items-center justify-center">
+        <div className=" flex w-[413px] min-w-[150px] flex-col items-center justify-center">
           {businessOrPersonal ? (
             <h1
-              className="mb-4 mt-8  self-start text-left  text-fs30px font-semibold
+              className="maxSm:w-full maxSm:text-center  mb-4 mt-8  self-start text-left text-fs30px font-semibold
             "
             >
               Create Personal Account
             </h1>
           ) : (
-            <h1 className="mb-4 mt-8  self-start font-sans text-fs30px font-semibold subpixel-antialiased">
+            <h1 className="maxSm:text-center maxSm:w-full  mb-4 mt-8 self-start font-sans text-fs30px font-semibold subpixel-antialiased">
               Create Business Account
             </h1>
           )}
 
           <div
-            className="relative mb-1  flex w-w407px rounded-thirtypx  bg-transparent ring-[1px]  ring-black ring-offset-2"
+            className="maxSm:w-10/12 relative  mb-1 flex w-w407px  rounded-thirtypx bg-transparent  ring-[1px] ring-black ring-offset-2"
             ref={dualButtonRef}
           >
             <label
