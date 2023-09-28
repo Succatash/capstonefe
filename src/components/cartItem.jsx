@@ -49,7 +49,9 @@ export default function CartItem({ product, cart, setCart, itemId, quantity }) {
         </div>
       </div>
       <button
-        className="h-[40px] w-[120px] self-center rounded-full bg-errorRed py-[6px] text-white hover:bg-errorRed/90 active:scale-95 active:backdrop-brightness-50"
+        className=" maxSm:text-[15px]  maxSm:h-[25px] maxSm:py-0 maxSm:mx-1 maxSm:self-end
+        
+        h-[40px] w-[120px] self-center rounded-full bg-errorRed py-[6px] text-white hover:bg-errorRed/90 active:scale-95 active:backdrop-brightness-50"
         onClick={() => {
           removeFromCart(itemId);
         }}
