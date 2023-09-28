@@ -79,7 +79,7 @@ const Login = () => {
         Sign into your Shuk Account
       </h1>
       <p className=" items-start text-sm">
-        use login: a@a.com password:Password
+        use login: c@c.com password:Password
       </p>
       <form
         action=""
