@@ -37,7 +37,7 @@ const PersonalForm = () => {
 
   const registerUser = async (userObj) => {
     try {
-      const response = await fetch(`http://localhost:6969/api/users/register`, {
+      const response = await fetch(`https://capstonebe-uc3j.onrender.com/api/users/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

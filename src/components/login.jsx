@@ -37,18 +37,21 @@ const Login = () => {
 
   const checkUser = async (userObj) => {
     try {
-      const response = await fetch(`http://localhost:6969/api/users/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user: {
-            email: userObj.email,
-            password: userObj.password,
+      const response = await fetch(
+        `https://capstonebe-uc3j.onrender.com/api/users/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
           },
-        }),
-      });
+          body: JSON.stringify({
+            user: {
+              email: userObj.email,
+              password: userObj.password,
+            },
+          }),
+        },
+      );
 
       const result = await response.json();
 
@@ -72,7 +75,7 @@ const Login = () => {
 
   return (
     <div className=" mt-10 flex flex-col items-center justify-center">
-      <h1 className="maxSm:w-10/12  maxSm:text-[25px] text-left text-fs30px font-semibold">
+      <h1 className="text-left  text-fs30px font-semibold maxSm:w-10/12 maxSm:text-[25px]">
         Sign into your Shuk Account
       </h1>
       <p className=" items-start text-sm">
@@ -81,7 +84,7 @@ const Login = () => {
       <form
         action=""
         onSubmit={handleSubmit(onSubmit)}
-        className="maxSm:w-10/12 flex w-[413px] flex-col items-center pt-4"
+        className="flex w-[413px] flex-col items-center pt-4 maxSm:w-10/12"
       >
         <div className="relative flex w-full flex-col items-end">
           <label
