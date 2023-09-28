@@ -11,6 +11,22 @@ export default function Navbar({ categories, cart }) {
   const cartRef = useRef();
   const [isLoggedIn, setIsLoggedIn] = useState({});
 
+  const total = () => {
+    let result = 0;
+    cart.map((el) => {
+      result += el.qty;
+    });
+    return result;
+  };
+
+  const price = () => {
+    let result = 0;
+    cart.map((el) => {
+      result += el.qty * el.prod.price;
+    });
+    return result;
+  };
+
   useEffect(() => {
     const loggedIn = JSON.parse(localStorage.getItem("login"));
 
@@ -110,7 +126,7 @@ export default function Navbar({ categories, cart }) {
               </div>
             )}
             <div
-              className=" right-0 mr-3 h-10 w-8 self-center   border border-transparent hover:self-center hover:border-px hover:border-dashed   hover:border-black hover:bg-khaki/10 "
+              className=" h-13 right-0 mr-3 w-10 self-center   border border-transparent hover:self-center hover:border-px hover:border-dashed   hover:border-black hover:bg-khaki/10 "
               onClick={() => {
                 navigate("cart");
               }}
@@ -122,7 +138,7 @@ export default function Navbar({ categories, cart }) {
                     ? "hidden"
                     : "badge"
                 } `}
-                value={cart?.length}
+                value={total()}
               >
                 {" "}
               </div>
@@ -140,6 +156,9 @@ export default function Navbar({ categories, cart }) {
                   d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
                 />
               </svg>
+              <p className="pt-4 text-center text-[8px]">
+                ${price().toFixed(2)}
+              </p>
             </div>
           </div>
         </div>

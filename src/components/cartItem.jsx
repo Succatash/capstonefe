@@ -5,9 +5,9 @@ export default function CartItem({ product, cart, setCart, itemId, quantity }) {
       .map((cartItem) => {
         if (cartItem.id === itemId) {
           // If the item matches the one to be removed
-          if (cartItem.quantity > 1) {
+          if (cartItem.qty > 1) {
             // If the quantity is greater than 1, decrement it
-            return { ...cartItem, quantity: cartItem.quantity - 1 };
+            return { ...cartItem, qty: cartItem.qty - 1 };
           } else {
             // If the quantity is 1, remove the item
             return null;

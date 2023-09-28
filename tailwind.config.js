@@ -11,8 +11,9 @@ export default {
 
 			height:
 			{fullDVH:"100dvh",},
-
 			spacing:{18:'4.5rem'},
+
+
 			clipPath:
 			{logoClip:"clip-path: rect(110px, 160px, 170px, 60px)"},
 
@@ -40,7 +41,8 @@ export default {
 				px:'1px'
 			},
 			fontSize:{
-				fs30px:'30px'
+				fs30px:'30px',
+				fs8px:'8px'
 			},textColor:{
 				trans: "webkit-text-fill-color:transparent"
 	

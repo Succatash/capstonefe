@@ -30,7 +30,6 @@ const MapProducts = ({ cart, setCart }) => {
             className=" h-4/12 relative z-[1] mb-10 flex w-8/12 flex-col gap-x-1   rounded-md bg-white p-10 shadow-lg"
             key={product.id}
           >
-            {/* TODO: finish styling products */}
             <Product
               category={category}
               product={product}
