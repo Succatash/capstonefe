@@ -135,7 +135,7 @@ export default function SingleProduct({ setCart, cart }) {
 
           <button
             ref={itemRef}
-            className="h-3/12  my-6 w-9/12 self-center rounded-full bg-aeroBlue/70 p-2 text-center text-white"
+            className="h-3/12  my-6 w-9/12 self-center rounded-full bg-aeroBlue/70 p-2 text-center text-white active:scale-95 active:brightness-90"
             onClick={() => {
               addToCart({
                 id: singleProduct.id,

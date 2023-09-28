@@ -75,7 +75,9 @@ const Login = () => {
       <h1 className="maxSm:w-10/12  maxSm:text-[25px] text-left text-fs30px font-semibold">
         Sign into your Shuk Account
       </h1>
-
+      <p className=" items-start text-sm">
+        use login: a@a.com password:Password
+      </p>
       <form
         action=""
         onSubmit={handleSubmit(onSubmit)}
@@ -243,8 +245,8 @@ const Login = () => {
         <input
           type="submit"
           value="Sign in"
-          className={`mb-[27px] w-full  rounded-full px-5 py-3 text-white ${
-            !isValid ? "cursor-not-allowed bg-dimGray/40" : "bg-purple/70"
+          className={`mb-[27px] w-full  rounded-full px-5 py-3 text-white active:scale-95 ${
+            !isValid ? "cursor-not-allowed bg-dimGray/40" : "bg-purple/70 "
           }`}
           {...register("submit")}
           disabled={!isDirty || !isValid}
@@ -253,7 +255,7 @@ const Login = () => {
         <input
           type="submit"
           value="Create Personal Account"
-          className={`w-full rounded-full   bg-aeroBlue px-5 py-3 text-center text-white
+          className={`w-full rounded-full  bg-aeroBlue px-5 py-3 text-center text-white active:scale-95
           `}
           {...register("createAccount")}
           onClick={() => {
@@ -261,6 +263,14 @@ const Login = () => {
           }}
         />
       </form>
+      <button
+        className="pt-5"
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        home
+      </button>
     </div>
   );
 };

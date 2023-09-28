@@ -1,9 +1,10 @@
 import { useState, useRef } from "react";
-
+import { useNavigate } from "react-router-dom";
 import PersonalForm from "./forms/personalForm";
 import BusinessForm from "./forms/businessForm";
 
 const Register = () => {
+  const navigate = useNavigate();
   const [businessOrPersonal, setBusinessOrPersonal] = useState(true);
   const dualButtonRef = useRef();
 
@@ -92,6 +93,14 @@ const Register = () => {
             <BusinessForm />
           )}
         </div>
+        <button
+          className="pt-5"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          home
+        </button>
       </div>
     </>
   );

@@ -94,7 +94,7 @@ export default function Navbar({ categories, cart }) {
               </>
             ) : (
               <div
-                className=" maxSm:pr-6 self-center hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10"
+                className=" maxSm:pr-6 relative self-center hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10"
                 onClick={() => {
                   navigate("/login");
                 }}
@@ -110,7 +110,7 @@ export default function Navbar({ categories, cart }) {
               </div>
             )}
             <div
-              className=" mr-3 h-10 w-8 self-center border border-transparent   hover:self-center hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10 "
+              className=" right-0 mr-3 h-10 w-8 self-center   border border-transparent hover:self-center hover:border-px hover:border-dashed   hover:border-black hover:bg-khaki/10 "
               onClick={() => {
                 navigate("cart");
               }}

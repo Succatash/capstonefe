@@ -45,7 +45,7 @@ const MapProducts = ({ cart, setCart }) => {
                 price: "text-checkmarkGreen",
                 desc: "line-clamp-2 ",
                 button:
-                  "relative z-[1000] cursor-default bg-aeroBlue/70  rounded-full text-white p-1 h-3/12 w-9/12 self-center mb-3 text-center",
+                  "relative z-[1000] cursor-default bg-aeroBlue/70  rounded-full text-white p-1 h-3/12 w-9/12 self-center mb-3 text-center active:scale-95 ",
                 subContainer: "px-5 cursor-default",
                 priceBox: "hover:underline",
                 rateBox: "f-full relative  pb-5",

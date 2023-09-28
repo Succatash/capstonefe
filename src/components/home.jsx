@@ -21,8 +21,9 @@ const Home = ({
       await fetch("https://fakestoreapi.com/products/categories")
         .then((res) => res.json())
         .then((json) => {
+          setCategories(json);
           localStorage.setItem("categories", JSON.stringify(json));
-        }, []);
+        });
     };
     getCategories();
   }, [setCategories]);

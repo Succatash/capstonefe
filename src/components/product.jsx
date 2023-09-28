@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const Product = ({ product, styling, click, setCart, cart }) => {
-  const [heartSvg, setHeartSvg] = useState(false);
+  const [heartSvg, setHeartSvg] = useState({});
 
   const addToCart = (item) => {
     // Check if the item already exists in the cart
@@ -28,9 +28,11 @@ const Product = ({ product, styling, click, setCart, cart }) => {
         className={`${styling.svgContainer} bg-aero-blue  absolute`}
         name={product.id}
         onClick={() => {
-          if (heartSvg) {
-            setHeartSvg(false);
-          } else setHeartSvg(true);
+          if (heartSvg.bool) {
+            setHeartSvg({ bool: false });
+          } else {
+            setHeartSvg({ bool: true });
+          }
         }}
       >
         <svg
@@ -38,7 +40,7 @@ const Product = ({ product, styling, click, setCart, cart }) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           className={`${
-            heartSvg
+            heartSvg.bool
               ? " heartBounce relative z-[1000] h-6 w-6 fill-aeroBlue stroke-aeroBlue"
               : "relative z-[1000] h-6  w-6  fill-none stroke-black"
           }`}

@@ -350,7 +350,7 @@ const PersonalForm = () => {
         <input
           type="submit"
           value="Create Personal Account"
-          className={`w-full rounded-full   px-5 py-3 text-white ${
+          className={`w-full rounded-full   px-5 py-3 text-white active:scale-95 ${
             !isValid ? "cursor-not-allowed bg-dimGray/40" : "bg-aeroBlue"
           }`}
           {...register("submit")}
