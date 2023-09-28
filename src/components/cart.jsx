@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+
 import CartItem from "./cartItem";
 
 // import Product from "./product";
 
-const Cart = ({ cart }) => {
-  const [total, setTotal] = useState(0);
-  const tot = () => {
+const Cart = ({ cart, setCart }) => {
+  const total = () => {
     let result = 0;
     cart.map((el) => {
       result += el.qty * el.prod.price;
@@ -22,10 +21,19 @@ const Cart = ({ cart }) => {
   return (
     <section className="m-auto mt-4 h-full w-9/12 ">
       <div className="text-bold w-[140px] text-3xl shadow-lg">
-        TOTAL: ${tot()}
+        TOTAL: ${total()}
       </div>
       {cart.map((item, idx) => {
-        return <CartItem key={idx} product={item.prod} />;
+        return (
+          <CartItem
+            itemId={item.id}
+            key={idx}
+            product={item.prod}
+            setCart={setCart}
+            cart={cart}
+            quantity={item.qty}
+          />
+        );
       })}
     </section>
   );
