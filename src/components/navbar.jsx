@@ -61,8 +61,8 @@ export default function Navbar({ categories, cart }) {
         ))}
 
         <div className="  flex w-9/12 flex-row justify-end maxLg:w-full">
-          <div className=" maxSm:justify-end maxSm:pr-4 flex w-full flex-row justify-around">
-            <div className="maxSm:hidden relative flex flex-row">
+          <div className=" flex w-full flex-row justify-around maxSm:justify-end maxSm:pr-4">
+            <div className="relative flex flex-row maxSm:hidden">
               <input
                 type="search"
                 className=" relative appearance-none self-center rounded-md bg-khaki/20 p-1 focus:outline-purple/60 maxLg:w-60 maxLg:px-20 maxMd:w-44"
@@ -86,7 +86,7 @@ export default function Navbar({ categories, cart }) {
 
             {isLoggedIn?.success ? (
               <>
-                <div className=" maxSm:pr-6 group  w-20  self-center hover:border-px  hover:border-dashed hover:border-black hover:bg-khaki/10 hover:px-px">
+                <div className=" group w-20  self-center  hover:border-px hover:border-dashed  hover:border-black hover:bg-khaki/10 hover:px-px maxSm:pr-6">
                   <span className="flex flex-row">
                     <IconContext.Provider
                       value={{ className: "self-center ml-2 fill-purple" }}
@@ -94,7 +94,7 @@ export default function Navbar({ categories, cart }) {
                       <AiOutlineUser />
                     </IconContext.Provider>
                     <span className="text-purple">Hi</span>,{" "}
-                    {isLoggedIn.firstName.toUpperCase()}
+                    {isLoggedIn.firstName[0].toUpperCase()}{" "}
                     {isLoggedIn?.lastName[0].toUpperCase().charAt(0)}
                   </span>
                   <button
@@ -110,7 +110,7 @@ export default function Navbar({ categories, cart }) {
               </>
             ) : (
               <div
-                className=" maxSm:pr-6 relative self-center hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10"
+                className=" relative self-center hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10 maxSm:pr-6"
                 onClick={() => {
                   navigate("/login");
                 }}
