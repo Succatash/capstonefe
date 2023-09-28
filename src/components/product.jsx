@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Product = ({ product, styling, setCart, cart, category }) => {
-  const [heartSvg, setHeartSvg] = useState({});
+const Product = ({ product, styling, setCart, cart, category, click }) => {
+  const [heartSvg, setHeartSvg] = useState(false);
   const navigate = useNavigate();
 
   const addToCart = (item) => {
@@ -27,13 +27,13 @@ const Product = ({ product, styling, setCart, cart, category }) => {
   return (
     <>
       <button
-        className={`${styling.svgContainer} bg-aero-blue  absolute`}
+        className={`${styling.svgContainer}   absolute`}
         name={product.id}
         onClick={() => {
-          if (heartSvg.bool) {
-            setHeartSvg({ bool: false });
+          if (heartSvg) {
+            setHeartSvg(false);
           } else {
-            setHeartSvg({ bool: true });
+            setHeartSvg(true);
           }
         }}
       >
@@ -42,9 +42,9 @@ const Product = ({ product, styling, setCart, cart, category }) => {
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           className={`${
-            heartSvg.bool
+            heartSvg
               ? " heartBounce relative z-[1000] h-6 w-6 fill-aeroBlue stroke-aeroBlue"
-              : "relative z-[1000] h-6  w-6  fill-none stroke-black"
+              : "relative z-[100] h-6  w-6   fill-none stroke-black"
           }`}
         >
           <path
@@ -58,9 +58,7 @@ const Product = ({ product, styling, setCart, cart, category }) => {
       <div
         className={styling.container}
         style={{ zIndex: 0 }}
-        onClick={() => {
-          navigate(`/${category}/${product.id}`);
-        }}
+        onClick={() => navigate(`/${category}/${product.id}`)}
       >
         <img src={product.image} alt="product image" className={styling.img} />
         <h2 className={styling.title}>{product.title}</h2>

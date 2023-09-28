@@ -24,9 +24,6 @@ const Categories = ({ styling, categories }) => {
           <div
             className=" relative z-0 flex h-full w-full min-w-[200px] flex-col  shadow-lg maxMd:mb-5 maxMd:justify-around"
             key={prod.id}
-            onClick={() => {
-              navigate(`/${categories}/${prod.id}`);
-            }}
           >
             <Product
               category={categories}
@@ -48,9 +45,7 @@ const Categories = ({ styling, categories }) => {
                 rate: `before:content-["★★★★★"] bg-clip-text  text-transparent bg-gold`,
                 sale: `text-xs self-end pl-2`,
               }}
-              click={() => {
-                navigate(`/${categories}/${prod.id}`);
-              }}
+              
             />
           </div>
         );
