@@ -19,6 +19,8 @@ function App() {
 
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cat = JSON.parse(localStorage.getItem("categories")) || [];
+    setCategories(cat);
     setCart(savedCart);
   }, [setCart]);
 
