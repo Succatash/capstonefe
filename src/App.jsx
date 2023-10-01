@@ -5,15 +5,13 @@ import { useState, useEffect } from "react";
 import Home from "./components/home";
 import Login from "./components/login";
 import Register from "./components/register";
-import MapProducts from "./components/mapProducts";
 import Cart from "./components/cart";
 import Layout from "./components/layout";
 import SingleProduct from "./components/singleProduct";
+import ByCategory from "./components/byCategory";
 
 function App() {
-  const [productsByCat, setProductsByCat] = useState([]);
   const [categories, setCategories] = useState([]);
-
   const [favorites, setFavorites] = useState([]);
   const [cart, setCart] = useState([]);
 
@@ -26,24 +24,14 @@ function App() {
 
   return (
     <Routes>
-      <Route
-        element={
-          <Layout
-            categories={categories}
-            setProductsByCat={setProductsByCat}
-            cart={cart}
-          />
-        }
-      >
+      <Route element={<Layout categories={categories} cart={cart} />}>
         <Route
           path="/"
           element={
             <Home
-              productsByCat={productsByCat}
               categories={categories}
               setFavorites={setFavorites}
               favorites={favorites}
-              setProductsByCat={setProductsByCat}
               setCategories={setCategories}
               setCart={setCart}
               cart={cart}
@@ -53,13 +41,7 @@ function App() {
 
         <Route
           path="/:category"
-          element={
-            <MapProducts
-              productsByCat={productsByCat}
-              setCart={setCart}
-              cart={cart}
-            />
-          }
+          element={<ByCategory setCart={setCart} cart={cart} />}
         />
 
         <Route

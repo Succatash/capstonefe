@@ -4,14 +4,15 @@ import { useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
 import Categories from "./categories";
 import Product from "./product";
+import { useNavigate } from "react-router-dom";
 //TODO:IMPORTANT: fix the home page not to have products then add a backend for categories and products
 const Home = ({
   categories,
   setCategories,
-  setProductsByCat,
-  cart,
   // setFavorites, favorites
 }) => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const getCategories = async () => {
       await fetch("https://fakestoreapi.com/products/categories")
