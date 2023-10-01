@@ -18,7 +18,11 @@ export default function Navbar({ categories, cart }) {
     });
     return result;
   };
-
+  {
+    () => {
+      console.log(document.scrollTop());
+    };
+  }
   const price = () => {
     let result = 0;
     cart.map((el) => {
@@ -34,7 +38,7 @@ export default function Navbar({ categories, cart }) {
   }, []);
 
   return (
-    <nav className=" relative flex h-16 w-full flex-row bg-white align-middle">
+    <nav className=" relative flex h-16 w-full flex-row bg-white align-middle ">
       <Link to={"/"}>
         <Logo
           styling=" absolute z-30  h-full w-15 text-purple/70 text-center text-[30px] flex items-center left-5 top-0 self-center "

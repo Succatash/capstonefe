@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Product from "./product";
 import { useEffect, useState } from "react";
 
+
 const MapProducts = ({ cart, setCart }) => {
   const { category } = useParams();
-  const navigate = useNavigate();
+
   const [prods, setProds] = useState([]);
 
   useEffect(() => {

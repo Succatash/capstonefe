@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Product = ({ product, styling, setCart, cart, category, click }) => {
+const Product = ({ product, styling, setCart, cart, category }) => {
   const [heartSvg, setHeartSvg] = useState(false);
   const navigate = useNavigate();
 

@@ -14,6 +14,7 @@ export default function Header({
       <header className="shadow-lg">
         <CallToAction />
         <Navbar
+     
           categories={categories}
           setProductsByCat={setProductsByCat}
           cart={cart}

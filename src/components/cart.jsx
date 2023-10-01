@@ -14,6 +14,7 @@ const Cart = ({ cart, setCart }) => {
   };
 
   return (
+    
     <section className="m-auto mt-4 h-full w-9/12 ">
       <div
         className="text-bold  w-full 
