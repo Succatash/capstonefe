@@ -15,8 +15,7 @@ const ByCategory = ({ cart, setCart }) => {
       </h1>
       <Categories
         styling={{
-          container:
-            " h-4/12 relative z-[1] mb-10 flex w-8/12 flex-col gap-x-1   rounded-md bg-alabaster/10 p-10 ",
+          container: " flex flex-col",
         }}
         cat={category}
         renderProduct={(product) => {

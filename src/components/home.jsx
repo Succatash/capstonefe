@@ -28,12 +28,12 @@ const Home = ({
   // TODO:IMPORTANT:add a sorting feature by filtering and setting products
   // console.log(cart);
   return (
-    <main className="flex h-screen w-full flex-col items-center bg-khaki/10  px-20 pt-20 ">
+    <main className="flex h-full w-full flex-col items-center bg-khaki/10  px-20 pt-20 ">
       {categories.map((cat, idx) => {
         return (
           <section
             key={cat}
-            className=" relative  mb-20  justify-around shadow-2xl maxMd:shadow-none"
+            className=" relative  mb-20  shadow-2xl maxMd:shadow-none"
           >
             <h1
               className="text-bold cursor-pointer pb-2 text-center text-2xl "
@@ -48,7 +48,7 @@ const Home = ({
               cat={cat}
               styling={{
                 container:
-                  "lg:gridHomeContainer sm:gridHomeContainerMedium  md:z-10 lg:z-10  maxMd:h-full ",
+                  "lg:gridHomeContainer sm:gridHomeContainerMedium  md:z-10 lg:z-10  maxMd:h-full",
               }}
               renderProduct={(products) => {
                 return (

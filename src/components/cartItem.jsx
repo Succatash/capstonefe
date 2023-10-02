@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 export default function CartItem({ product, cart, setCart, itemId, quantity }) {
+
   const removeFromCart = (itemId) => {
     const updatedCart = cart
       .map((cartItem) => {
