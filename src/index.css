@@ -51,6 +51,37 @@
   opacity:0.9;
   z-index:20
 }
+.gridHomeContainer{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 250px));
+  grid-template-rows: repeat(2, minmax(200px, 250px));
+  justify-content: center;
+  overflow: scroll;
+  row-gap: 15px;
+  column-gap:15px;
+  align-items: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.gridHomeContainerMedium{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 250px));
+  grid-template-rows: repeat(2, minmax(200px, 250px));
+  justify-content: center;
+  overflow: scroll;
+  row-gap: 15px;
+  column-gap:15px;
+  align-items: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.gridNavBar{
+  display: grid;
+  grid-template-rows: 64px 34px
+
+}
 }
 
 @layer utilities{
@@ -58,32 +89,7 @@
     width:calc(100% - 150px);
   }
 
-.gridHomeContainer{
-  display: grid;
-	grid-template-columns: repeat(2, minmax(200px, 250px));
-	grid-template-rows: repeat(2, minmax(200px, 250px));
-	justify-content: center;
-	overflow: scroll;
-	row-gap: 15px;
-  column-gap:15px;
-	align-items: center;
-	justify-items: center;
-	align-items: center;
-}
-
-.gridHomeContainerMedium{
-  display: grid;
-	grid-template-columns: repeat(2, minmax(200px, 250px));
-	grid-template-rows: repeat(2, minmax(200px, 250px));
-	justify-content: center;
-	overflow: scroll;
-	row-gap: 15px;
-  column-gap:15px;
-	align-items: center;
-	justify-items: center;
-	align-items: center;
-}
-
+  
 
 .heartBounce{
   animation: .75s 2.5 .5s bounce;
