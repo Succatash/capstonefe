@@ -11,10 +11,9 @@ export default function Header({
 }) {
   return (
     <>
-      <header className="shadow-lg">
+      <header className="h-[140px] shadow-lg">
         <CallToAction />
         <Navbar
-     
           categories={categories}
           setProductsByCat={setProductsByCat}
           cart={cart}

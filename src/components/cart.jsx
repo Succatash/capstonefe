@@ -5,16 +5,17 @@ import CartItem from "./cartItem";
 // import Product from "./product";
 
 const Cart = ({ cart, setCart }) => {
+  let result = 0;
+
   const total = () => {
-    let result = 0;
     cart.map((el) => {
       result += el.qty * el.prod.price;
     });
+
     return result;
   };
 
   return (
-    
     <section className="m-auto mt-4 h-full w-9/12 ">
       <div
         className="text-bold  w-full 
@@ -27,6 +28,7 @@ const Cart = ({ cart, setCart }) => {
       {cart.map((item, idx) => {
         return (
           <CartItem
+            result={result}
             itemId={item.id}
             key={idx}
             product={item.prod}

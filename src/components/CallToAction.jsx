@@ -1,8 +1,11 @@
 export default function CallToAction() {
   return (
-    <div className="max-h-12.25 h-12.25 bg-alabaster text-center text-black/60">
-      Grand Opening Sale <span className="text-errorRed">10% off</span> all
-      products
+    <div className=" h-10 bg-alabaster  text-black/60">
+      <p className="h-full pt-3  text-center align-bottom text-lg">
+        {" "}
+        Grand Opening Sale{" "}
+        <span className="text-2xl text-errorRed">10% off</span> all products
+      </p>
     </div>
   );
 }

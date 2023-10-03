@@ -16,7 +16,7 @@ const ByCategory = ({ cart, setCart }) => {
       <Categories
         styling={{
           container: " flex flex-col",
-        }}
+      }}
         cat={category}
         renderProduct={(product) => {
           return (

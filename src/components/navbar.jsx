@@ -33,7 +33,6 @@ export default function Navbar({ categories, cart }) {
 
   useEffect(() => {
     const loggedIn = JSON.parse(localStorage.getItem("login"));
-
     setIsLoggedIn(loggedIn);
   }, []);
 
@@ -90,23 +89,31 @@ export default function Navbar({ categories, cart }) {
 
             {isLoggedIn?.success ? (
               <>
-                <div className=" group w-20  self-center  hover:border-px hover:border-dashed  hover:border-black hover:bg-khaki/10 hover:px-px maxSm:pr-6">
-                  <span className="flex flex-row">
+                <div className="group  w-20 self-center  hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10 hover:px-px maxSm:w-6/12 maxSm:pr-2">
+                  <span className="flex flex-row justify-start maxSm:text-lg">
                     <IconContext.Provider
-                      value={{ className: "self-center ml-2 fill-purple" }}
+                      value={{
+                        className: "self-center ml-2 fill-purple  ",
+                      }}
                     >
                       <AiOutlineUser />
                     </IconContext.Provider>
-                    <span className="text-purple">Hi</span>,{" "}
-                    {isLoggedIn.firstName[0].toUpperCase()}{" "}
-                    {isLoggedIn?.lastName[0].toUpperCase().charAt(0)}
+                    <span className="text-purple maxSm:text-lg">Hi</span>,{" "}
+                    <div className="flex flex-row">
+                      {`${isLoggedIn?.firstName[0]
+                        .toUpperCase()
+                        .charAt(0)}${isLoggedIn.firstName.slice(1)} `}
+                      {isLoggedIn.lastName[0].toUpperCase()}{" "}
+                    </div>
                   </span>
+                  {/* TODO:this needs to be styled to the left as an actual
+                  hamburger that drops down */}
                   <button
                     onClick={() => {
                       localStorage.removeItem("login");
                       location.reload();
                     }}
-                    className=" invisible  group-hover:visible "
+                    className=" hidden group-hover:block "
                   >
                     logout
                   </button>
@@ -114,7 +121,7 @@ export default function Navbar({ categories, cart }) {
               </>
             ) : (
               <div
-                className=" relative self-center hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10 maxSm:pr-6"
+                className=" relative self-center hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10"
                 onClick={() => {
                   navigate("/login");
                 }}
