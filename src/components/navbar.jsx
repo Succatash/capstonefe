@@ -44,7 +44,7 @@ export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
         <div className="w-15 relative">
           <HamburgerMenu setIsOpen={setIsOpen} isOpen={isOpen} />
           <Logo
-            styling=" absolute z-10 h-15 w-15 maxMd:pl-3 flex items-center maxMd:left-5 left-10 top-0 self-center  maxSm:self-center   maxSm:pl-2"
+            styling=" absolute z-10 h-15 w-15 maxMd:pl-3 flex items-center left-10 top-0 self-center  maxSm:self-center   maxSm:pl-2"
             onClick={() => {
               navigate("/");
             }}
@@ -75,11 +75,11 @@ export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
               </div>
             </div>
 
-            <div className="flex w-5/12 flex-row justify-end">
+            <div className="flex w-6/12 flex-row justify-end">
               {isLoggedIn?.success ? (
-                <div className=" group mr-5 flex h-full  w-[120px] justify-end ">
+                <div className=" group mr-5 flex h-full  w-full justify-end ">
                   <div className="flex flex-col self-center">
-                    <span className="flex   flex-row  self-center hover:w-full hover:border-px  hover:border-dashed hover:border-black hover:bg-khaki/10 hover:px-px sm:justify-end maxMd:justify-start">
+                    <span className="flex  w-[200px] flex-row self-center  text-right hover:w-full hover:border-px  hover:border-dashed hover:border-black hover:bg-khaki/10 hover:px-px sm:justify-end maxMd:justify-end">
                       <IconContext.Provider
                         value={{
                           className: "self-center ml-2  w-5 h-5  ",
@@ -129,7 +129,7 @@ export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
                 </div>
               )}
 
-              <button className=" maxMid:hidden mr-2" name="wishlist">
+              <button className=" mr-2 maxMid:hidden" name="wishlist">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
