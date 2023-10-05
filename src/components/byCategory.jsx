@@ -16,7 +16,7 @@ const ByCategory = ({ cart, setCart }) => {
       <Categories
         styling={{
           container: " flex flex-col",
-      }}
+        }}
         cat={category}
         renderProduct={(product) => {
           return (
@@ -31,7 +31,7 @@ const ByCategory = ({ cart, setCart }) => {
                 cart={cart}
                 styling={{
                   container:
-                    " relative flex flex-col justify-center items-start w-full h-full   z-[1]  min-h-[300px]",
+                    " relative flex flex-col justify-around items-start w-full h-full   z-[1]  min-h-[300px]",
                   svgContainer:
                     "w-6 h-6  absolute right-3 top-0  mt-4 bg-transparent mr-[2px] bg-aeroBlue",
                   title: "hidden",

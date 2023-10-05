@@ -7,6 +7,7 @@ const Product = ({ product, styling, setCart, cart, category }) => {
   const [heartSvg, setHeartSvg] = useState(false);
   const navigate = useNavigate();
 
+  // NOTE:add to cart function
   const addToCart = (item) => {
     // Check if the item already exists in the cart
     const existingItemIndex = cart.findIndex((cart) => cart.id === item.id);

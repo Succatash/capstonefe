@@ -5,9 +5,10 @@
 @layer base
 { 
   :root {
-  --color-red: 2 100% 50%;
+  --color-red: 2 100% 50%;   
   --color-black: 267 73% 3%;
-  --color-purple: 267 72% 44%;
+  --color-purple: 267 72% 70%;   
+	/* #ad7bea */
   --color-aeroBlue: 198 66% 62%;
   --color-alabaster: 38 44% 90%;
   --color-khaki: 40 12% 59%;
@@ -23,7 +24,12 @@
   --percent: calc(var(--rating) / 5 * 100%),
   
   }
+  
+
 }
+
+
+
 
 
 @layer components{
@@ -51,6 +57,43 @@
   opacity:0.9;
   z-index:20
 }
+.gridHomeContainer{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 250px));
+  grid-template-rows: repeat(2, minmax(200px, 250px));
+  justify-content: center;
+  overflow: scroll;
+  row-gap: 15px;
+  column-gap:15px;
+  align-items: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.gridHomeContainerMedium{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 250px));
+  grid-template-rows: repeat(2, minmax(200px, 250px));
+  justify-content: center;
+  overflow: scroll;
+  row-gap: 15px;
+  column-gap:15px;
+  align-items: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.gridNavBar{
+  display: grid;
+  grid-template-rows: 64px 34px
+
+}
+
+.gridNavBar3{
+  display: grid;
+  grid-template-rows: 64px 40px 34px
+
+}
 }
 
 @layer utilities{
@@ -58,32 +101,19 @@
     width:calc(100% - 150px);
   }
 
-.gridHomeContainer{
-  display: grid;
-	grid-template-columns: repeat(2, minmax(200px, 250px));
-	grid-template-rows: repeat(2, minmax(200px, 250px));
-	justify-content: center;
-	overflow: scroll;
-	row-gap: 15px;
-  column-gap:15px;
-	align-items: center;
-	justify-items: center;
-	align-items: center;
-}
 
-.gridHomeContainerMedium{
-  display: grid;
-	grid-template-columns: repeat(2, minmax(200px, 250px));
-	grid-template-rows: repeat(2, minmax(200px, 250px));
-	justify-content: center;
-	overflow: scroll;
-	row-gap: 15px;
-  column-gap:15px;
-	align-items: center;
-	justify-items: center;
-	align-items: center;
-}
-
+  .open .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  
+  .open .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .open .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+  
 
 .heartBounce{
   animation: .75s 2.5 .5s bounce;
@@ -99,6 +129,13 @@
     animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
+
+
+  .removeInputX,
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration { -webkit-appearance:none }
 
 }
 
