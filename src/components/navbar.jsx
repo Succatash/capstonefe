@@ -44,14 +44,14 @@ export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
         <div className="w-15 relative">
           <HamburgerMenu setIsOpen={setIsOpen} isOpen={isOpen} />
           <Logo
-            styling=" absolute z-10 h-15 w-15 maxMd:pl-3 flex items-center left-5 top-0 self-center  maxSm:self-center   maxSm:pl-2"
+            styling=" absolute z-10 h-15 w-15 maxMd:pl-3 flex items-center maxMd:left-5 left-10 top-0 self-center  maxSm:self-center   maxSm:pl-2"
             onClick={() => {
               navigate("/");
             }}
           />
         </div>
 
-        <div className=" widthWithCalcMinusLogo absolute right-0 flex h-[64px]  justify-end p-4">
+        <div className=" widthWithCalcMinusLogo absolute right-0 flex h-[64px]  justify-end py-4 pl-4 pr-2">
           <div className="  flex-end flex w-full flex-row justify-end">
             <div className=" focus-within:outline-px  mr-4  flex flex-row  justify-center rounded-md  focus-within:outline maxMd:hidden maxSm:mr-4">
               <input
@@ -77,7 +77,7 @@ export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
 
             <div className="flex w-5/12 flex-row justify-end">
               {isLoggedIn?.success ? (
-                <div className=" group mr-3 flex h-full  w-[120px] justify-end ">
+                <div className=" group mr-5 flex h-full  w-[120px] justify-end ">
                   <div className="flex flex-col self-center">
                     <span className="flex   flex-row  self-center hover:w-full hover:border-px  hover:border-dashed hover:border-black hover:bg-khaki/10 hover:px-px sm:justify-end maxMd:justify-start">
                       <IconContext.Provider
@@ -113,14 +113,14 @@ export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
                 </div>
               ) : (
                 <div
-                  className=" relative   self-center justify-self-end text-center hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10   "
+                  className=" relative   mr-3 self-center justify-self-end text-center hover:border-px hover:border-dashed hover:border-black  hover:bg-khaki/10 "
                   onClick={() => {
                     navigate("/login");
                   }}
                 >
                   <span className="flex w-[80.85px]  flex-row">
                     <IconContext.Provider
-                      value={{ className: "self-center ml-2  w-5 h-5" }}
+                      value={{ className: "self-center mr-1  w-5 h-5" }}
                     >
                       <AiOutlineUser />
                     </IconContext.Provider>
@@ -129,7 +129,7 @@ export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
                 </div>
               )}
 
-              <button className=" maxMid:hidden" name="wishlist">
+              <button className=" maxMid:hidden mr-2" name="wishlist">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -203,7 +203,7 @@ export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
           <NavLink
             key={1 + i}
             to={`/${el}`}
-            className=" flex h-full w-[22px] items-center justify-center text-center text-xs  leading-4 hover:w-full hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10 hover:text-center maxMd:w-full maxMd:text-[8px]"
+            className=" flex h-full  w-full items-center justify-center text-center  text-xs leading-4 hover:w-full hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10 hover:text-center maxMd:text-[8px]"
           >
             {console.log(el)}
             {el.toUpperCase()}

@@ -17,7 +17,7 @@ export default function Logo({ styling }) {
           height="60px"
           width="60px"
           viewBox=" 0 0 500 500"
-          className="scale-[140%] maxLg:scale-[200%]"
+          className="scale-[200%]"
         >
           {/*  */}
           <path

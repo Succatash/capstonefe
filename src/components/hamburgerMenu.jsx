@@ -7,7 +7,7 @@ const HamburgerMenu = ({ setIsOpen, isOpen }) => {
   return (
     <>
       <div
-        className={`  top-0 h-16 w-10 flex-col items-center justify-center  maxMd:absolute maxMd:flex ${
+        className={`  absolute top-0 flex h-16 w-10 flex-col  items-center justify-center md:hidden ${
           isOpen ? "open " : ""
         }`}
       >
