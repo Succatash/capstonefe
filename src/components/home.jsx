@@ -75,6 +75,7 @@ const Home = ({
                         rate: `before:content-["★★★★★"] bg-clip-text  text-transparent bg-gold`,
                         sale: `text-xs self-end pl-2`,
                       }}
+                      category={cat}
                     />
                   </div>
                 );
