@@ -7,13 +7,13 @@ const HamburgerMenu = ({ setIsOpen, isOpen }) => {
   return (
     <>
       <div
-        className={`  absolute top-0 flex h-16 w-10 flex-col  items-center justify-center md:hidden ${
+        className={`  absolute left-20  top-0 flex h-16 w-10 flex-col  items-center justify-center maxMd:left-6 ${
           isOpen ? "open " : ""
-        }`}
+        } md:hidden`}
       >
         <button
           className={`pointer-default relative   z-[20] h-full border-none bg-none p-[10px] ${
-            isOpen ? "hidden " : " "
+            isOpen ? "hidden" : " "
           }`}
           onClick={toggleMenu}
         >

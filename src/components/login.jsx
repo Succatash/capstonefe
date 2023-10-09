@@ -226,7 +226,7 @@ const Login = () => {
           <input
             type="checkbox"
             autoComplete="off"
-            className="  mb-[27px] h-4 w-5   justify-center self-center rounded-sm  border-px border-dimGray/80 accent-purple"
+            className="  heartBounce mb-[27px] h-4   w-5 justify-center self-center  rounded-sm border-px border-dimGray/80 accent-purple"
             {...register("staySignedIn")}
           />
           <label

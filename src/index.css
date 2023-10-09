@@ -114,10 +114,14 @@
     transform: translateY(-6px) rotate(-45deg);
   }
   
+.modalEase{
+  transition: opacity 0.4s ease, transform .8s  cubic-bezier(0.165, 0.84, 0.44, 1)
+}
 
 .heartBounce{
   animation: .75s 2.5 .5s bounce;
 }
+
 
 @keyframes bounce {
   0%, 100% {

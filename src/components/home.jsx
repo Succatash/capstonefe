@@ -28,7 +28,7 @@ const Home = ({
   // TODO:IMPORTANT:add a sorting feature by filtering and setting products
   // console.log(cart);
   return (
-    <main className="flex h-full w-full flex-col items-center bg-khaki/10  px-20 pt-20 ">
+    <main className="flex h-full w-full flex-col items-center   bg-khaki/10 px-20 pt-20 ">
       {categories.map((cat, idx) => {
         return (
           <section

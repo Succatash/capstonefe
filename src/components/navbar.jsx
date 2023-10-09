@@ -4,14 +4,21 @@ import HamburgerMenu from "./hamburgerMenu";
 
 import { useNavigate, NavLink } from "react-router-dom";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { IconContext } from "react-icons";
 
-export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
+export default function Navbar({
+  categories,
+  cart,
+  setIsOpen,
+  isOpen,
+  logOutModal,
+  setLogOutModal,
+  isLoggedIn,
+}) {
   const navigate = useNavigate();
   const cartRef = useRef();
-  const [isLoggedIn, setIsLoggedIn] = useState({});
 
   const total = () => {
     let result = 0;
@@ -20,11 +27,7 @@ export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
     });
     return result;
   };
-  {
-    () => {
-      console.log(document.scrollTop());
-    };
-  }
+
   const price = () => {
     let result = 0;
     cart.map((el) => {
@@ -33,30 +36,27 @@ export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
     return result;
   };
 
-  useEffect(() => {
-    const loggedIn = JSON.parse(localStorage.getItem("login"));
-    setIsLoggedIn(loggedIn);
-  }, []);
-
   return (
     <nav className="gridNavBar maxMd:gridNavBar3 grid w-full  bg-white align-middle ">
       <>
-        <div className="w-15 relative">
-          <HamburgerMenu setIsOpen={setIsOpen} isOpen={isOpen} />
+        <div className="relative flex h-full w-full flex-row">
           <Logo
-            styling=" absolute z-10 h-15 w-15 maxMd:pl-3 flex items-center left-10 top-0 self-center  maxSm:self-center   maxSm:pl-2"
+            styling=" absolute z-70 h-15 w-15 maxMd:pl-3 flex justify-center  top-0 left-3   maxMd:left-[42%] maxSm:pl-2 maxMd-z-[70]"
             onClick={() => {
               navigate("/");
             }}
           />
+          <p></p>
+
+          <HamburgerMenu setIsOpen={setIsOpen} isOpen={isOpen} />
         </div>
 
         <div className=" widthWithCalcMinusLogo absolute right-0 flex h-[64px]  justify-end py-4 pl-4 pr-2">
           <div className="  flex-end flex w-full flex-row justify-end">
-            <div className=" focus-within:outline-px  mr-4  flex flex-row  justify-center rounded-md  focus-within:outline maxMd:hidden maxSm:mr-4">
+            <div className="   flex flex-row justify-center  rounded-md focus-within:border-px  focus-within:border-black maxMd:hidden maxSm:mr-4">
               <input
                 type="search"
-                className=" removeInputX group w-[250px] appearance-none justify-self-center  rounded-l-md bg-khaki/20 px-4 outline outline-transparent maxMd:w-[200px] "
+                className=" removeInputX group  w-[250px]  appearance-none rounded-l-md  bg-khaki/20  px-4 outline outline-transparent maxMd:w-[200px] "
               />
               <div className="right pointer-events-none relative right-0 z-20 flex h-8 self-center rounded-r-md bg-khaki/20 pr-2">
                 <svg
@@ -75,40 +75,34 @@ export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
               </div>
             </div>
 
-            <div className="flex w-6/12 flex-row justify-end">
+            <div className="flex w-6/12 cursor-default flex-row justify-end">
               {isLoggedIn?.success ? (
-                <div className=" group mr-5 flex h-full  w-full justify-end ">
-                  <div className="flex flex-col self-center">
-                    <span className="flex  w-[200px] flex-row self-center  text-right hover:w-full hover:border-px  hover:border-dashed hover:border-black hover:bg-khaki/10 hover:px-px sm:justify-end maxMd:justify-end">
+                <div className="mr-5 flex h-full  w-full justify-end ">
+                  <div className="flex flex-col self-center ">
+                    <div
+                      className="flex  w-[150px] flex-row self-center text-right  text-sm    hover:underline sm:justify-end maxMd:w-10 maxMd:justify-end "
+                      onClick={() => {
+                        setLogOutModal(!logOutModal);
+                      }}
+                    >
                       <IconContext.Provider
                         value={{
-                          className: "self-center ml-2  w-5 h-5  ",
+                          className: "self-center ml-2  w-5 h-5",
                         }}
                       >
                         <AiOutlineUser />
                       </IconContext.Provider>
 
-                      <div className="flex flex-row">
+                      <div className="flex flex-row maxMd:hidden">
                         Hi,{" "}
-                        {`${isLoggedIn?.firstName[0]
-                          .toUpperCase()
-                          .charAt(0)}${isLoggedIn.firstName.slice(1)} `}
+                        {`${
+                          isLoggedIn?.firstName[0].toUpperCase().charAt(0) +
+                          isLoggedIn.firstName.slice(1)
+                        } `}
                         {isLoggedIn.lastName[0].toUpperCase()}{" "}
                       </div>
-                    </span>
-
-                    {/* TODO:this needs to be styled to the left as an actual
-                    hamburger that drops down */}
-
-                    <button
-                      onClick={() => {
-                        localStorage.removeItem("login");
-                        location.reload();
-                      }}
-                      className=" hidden group-hover:absolute group-hover:top-10 group-hover:block "
-                    >
-                      logout
-                    </button>
+                    </div>
+                    {/* NOTE:modal for account */}
                   </div>
                 </div>
               ) : (
@@ -136,7 +130,7 @@ export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
                   strokeWidth={1.5}
                   className="
                        
-                         relative z-[100] mr-2  h-6  w-6  fill-none stroke-black
+                         relative z-10 mr-2  h-6  w-6  fill-none stroke-black
                     "
                 >
                   {/*NOTE:this is when u have items in the wish List " heartBounce relative z-[1000] h-6 w-6 fill-aeroBlue stroke-aeroBlue": */}
@@ -149,7 +143,7 @@ export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
               </button>
 
               <div
-                className=" h-13 right-0 mr-3 w-10 self-center   border border-transparent hover:self-center hover:border-px hover:border-dashed   hover:border-black hover:bg-khaki/10 "
+                className=" h-13 right-0 mr-3 w-10 self-center   border border-transparent "
                 onClick={() => {
                   navigate("cart");
                 }}
@@ -171,7 +165,7 @@ export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
                   stroke="currentColor"
-                  className=" absolute top-4 h-8 w-8 "
+                  className=" absolute top-4 h-8 w-8  pr-px"
                 >
                   <path
                     strokeLinecap="round"
@@ -196,17 +190,12 @@ export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
       {/* row2 */}
       <div className="relative order-2 flex w-full flex-row justify-around maxMd:order-3">
         {categories.map((el, i) => (
-          // <div
-          //   key={1 + i}
-          //   className="border-x-1 flex flex-row divide-x-8  divide-solid divide-black  border-x-dimGray/20 "
-          // >
           <NavLink
             key={1 + i}
             to={`/${el}`}
-            className=" flex h-full  w-full items-center justify-center text-center  text-xs leading-4 hover:w-full hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10 hover:text-center maxMd:text-[8px]"
+            className=" flex h-full  w-full items-center justify-center text-center  text-xs font-extrabold leading-4 hover:w-full hover:border-px hover:border-dashed hover:border-black hover:bg-khaki/10 hover:text-center maxMd:text-[8px]"
           >
-            {console.log(el)}
-            {el.toUpperCase()}
+            {el[0].toUpperCase() + el.slice(1)}
           </NavLink>
           // </div>
         ))}
@@ -214,11 +203,15 @@ export default function Navbar({ categories, cart, setIsOpen, isOpen }) {
 
       {/*NOTE: this is the search bar on the second row when screens get smaller then 600px */}
 
-      <div className=" hidden h-full justify-center maxMd:order-2 maxMd:flex">
-        <div className=" flex  h-full flex-row rounded-md border-black focus-within:border-px">
+      <div className=" hidden h-full w-full justify-center maxMd:order-2 maxMd:flex">
+        <div className=" flex  h-full w-10/12 flex-row rounded-md border-black focus-within:border-px">
           <input
             type="search"
-            className=" removeInputX group h-9 w-[200px] appearance-none self-center rounded-l-md bg-khaki/20 px-4 outline outline-transparent "
+            className=" removeInputX group h-9 w-full appearance-none self-center rounded-l-md bg-khaki/20 px-4 outline outline-transparent "
+            placeholder="search here"
+            onBlur={(e) => {
+              console.log(e);
+            }}
           />
           <div className="pointer-events-none  relative flex h-9 self-center rounded-r-md bg-khaki/20 pr-3">
             <svg
