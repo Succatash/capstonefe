@@ -41,7 +41,7 @@ export default function Navbar({
       <>
         <div className="relative flex h-full w-full flex-row">
           <Logo
-            styling=" absolute z-70 h-15 w-15 maxMd:pl-3 flex justify-center  top-0 left-3   maxMd:left-[42%] maxSm:pl-2 maxMd-z-[70]"
+            styling=" absolute z-10 h-15 w-15 maxMd:pl-3 flex justify-center  top-0 left-3   maxMd:left-[42%] maxSm:pl-2 "
             onClick={() => {
               navigate("/");
             }}
@@ -53,12 +53,11 @@ export default function Navbar({
 
         <div className=" widthWithCalcMinusLogo absolute right-0 flex h-[64px]  justify-end py-4 pl-4 pr-2">
           <div className="  flex-end flex w-full flex-row justify-end">
-            <div className="   flex flex-row justify-center  rounded-md focus-within:border-px  focus-within:border-black maxMd:hidden maxSm:mr-4">
-              <input
-                type="search"
-                className=" removeInputX group  w-[250px]  appearance-none rounded-l-md  bg-khaki/20  px-4 outline outline-transparent maxMd:w-[200px] "
-              />
-              <div className="right pointer-events-none relative right-0 z-20 flex h-8 self-center rounded-r-md bg-khaki/20 pr-2">
+            <div
+              className="  focus-within:outline-px   black flex  
+           flex-row justify-center rounded-md focus-within:outline focus-within:outline-black maxMd:hidden"
+            >
+              <div className="pointer-events-none relative  z-20 flex h-9 self-center rounded-l-md bg-khaki/20 pl-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -73,9 +72,15 @@ export default function Navbar({
                   />
                 </svg>
               </div>
+
+              <input
+                type="search"
+                className=" removeInputX group h-9 w-[300px] appearance-none self-center rounded-r-md border-transparent bg-khaki/20 px-4 outline outline-transparent "
+                placeholder="search here"
+              />
             </div>
 
-            <div className="flex w-6/12 cursor-default flex-row justify-end">
+            <div className="flex w-5/12 cursor-default flex-row justify-end">
               {isLoggedIn?.success ? (
                 <div className="mr-5 flex h-full  w-full justify-end ">
                   <div className="flex flex-col self-center ">
@@ -99,7 +104,6 @@ export default function Navbar({
                           isLoggedIn?.firstName[0].toUpperCase().charAt(0) +
                           isLoggedIn.firstName.slice(1)
                         } `}
-                        {isLoggedIn.lastName[0].toUpperCase()}{" "}
                       </div>
                     </div>
                     {/* NOTE:modal for account */}
@@ -128,10 +132,7 @@ export default function Navbar({
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
                   strokeWidth={1.5}
-                  className="
-                       
-                         relative z-10 mr-2  h-6  w-6  fill-none stroke-black
-                    "
+                  className=" pointer-events-none relative flex h-8 self-center fill-transparent stroke-black pr-3"
                 >
                   {/*NOTE:this is when u have items in the wish List " heartBounce relative z-[1000] h-6 w-6 fill-aeroBlue stroke-aeroBlue": */}
                   <path
